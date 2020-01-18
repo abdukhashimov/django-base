@@ -29,7 +29,7 @@ class UserManager(BaseUserManager):
         return user
 
 
-class User(AbstractBaseUser, PermissionError):
+class User(AbstractBaseUser, PermissionsMixin):
     """Custom User Model that supports using email field instead of username"""
     email = models.EmailField(max_length=255, unique=True)
     name = models.CharField(max_length=255, blank=True)
